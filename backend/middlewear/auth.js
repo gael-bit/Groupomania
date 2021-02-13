@@ -1,5 +1,12 @@
 const jwt = require('jsonwebtoken');
 
+/**
+ * Vérifie que le token soit le bon
+ *
+ * @param {void} aucun paramettre
+ * 
+ * @return  {void}
+ */
 module.exports = (req, res, next) => {
   console.clear();
 
