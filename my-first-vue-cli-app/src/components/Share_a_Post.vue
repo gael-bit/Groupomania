@@ -18,6 +18,13 @@ import axios from '../customAxios';
  export default {
     name : 'share_a_popst',
     methods: {
+        /**
+         * Envoie le post de l'utilisateur (image, gif, article) au backend
+         *
+         * @param {void} aucun paramettre
+         * 
+         * @return  {void}
+         */
         async sendFormulaire(){
             var url = window.location.href;
             url = url.replace(/\/$/, "");

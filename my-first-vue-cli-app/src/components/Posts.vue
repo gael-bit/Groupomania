@@ -28,6 +28,13 @@ export default {
     components : {
         Comment,
     },
+    /**
+         * Affiche les posts partagés et les commentaires des utilisateurs
+         *
+         * @param {void} aucun paramettre
+         * 
+         * @return  {void}
+         */
     data() {
         var url = window.location.href;
         url = url.replace(/\/$/, "");

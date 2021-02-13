@@ -30,6 +30,13 @@ export default {
             type: Number
         }
     },
+    /**
+         * Affiche les commentaires de chaque posts
+         *
+         * @param {void} aucun paramettre
+         * 
+         * @return  un objet avec les commentaires de chaque post
+         */
     data(){
         console.log(this.number)
          const token = localStorage.getItem('token');
@@ -46,6 +53,13 @@ export default {
         }
     },
     methods : {
+        /**
+         * Masque les commentaires de chaque posts
+         *
+         * @param {void} aucun paramettre
+         * 
+         * @return  {void}
+         */
         masckComment(){
             
             var commentZone = document.getElementById(this.number);
@@ -60,6 +74,13 @@ export default {
             
 
         },
+        /**
+         * Récupère l'id d'un post
+         *
+         * @param {void} aucun paramettre
+         * 
+         * @return  retourne l'id d'un post
+         */
         querySelect(){
             var inputs = document.querySelectorAll('input[type=text]'),
                 i,
@@ -75,6 +96,13 @@ export default {
             return byVal[0]
             
         },
+        /**
+         * Envoie un commentaire
+         *
+         * @param {void} aucun paramettre
+         * 
+         * @return  {void}
+         */
         async sendComment(){
             this.masckComment()
             var commentaire = this.querySelect();

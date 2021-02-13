@@ -16,6 +16,13 @@ import axios from '../customAxios';
 export default {
     name : 'connect',
     methods : {
+        /**
+         * Vérifie que le formulaire est rempli correctement avant de l'envoyer au backend
+         *
+         * @param {void} aucun paramettre
+         * 
+         * @return  {void}
+         */
         checkFormulaire(){
             const mail = document.getElementById('email').value;
             const mailValid = /[A-Za-zëçéèà.]{3,20}[@][A-Za-zëçéèà]{3,20}.[.]com/;

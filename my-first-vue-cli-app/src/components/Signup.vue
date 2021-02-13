@@ -24,11 +24,17 @@
 </template>
 
 <script>
-//const axios = require('axios').default;
 import axios from '../customAxios';
 export default {
     name : 'signup',
     methods : {
+        /**
+         * Vérifie que le formulaire est rempli correctement avant de l'envoyer au backend
+         *
+         * @param {void} aucun paramettre
+         * 
+         * @return  {void}
+         */
         checkFormulaire(){
             var picture = document.getElementById('picture').files[0];
             const prenom = document.getElementById('prenom').value;

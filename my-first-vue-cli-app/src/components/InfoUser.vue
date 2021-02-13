@@ -13,6 +13,13 @@
 import axios from '../customAxios';
 export default {
     name : 'infoUser',
+    /**
+         * Affiche les informations de l'utilisateur (nom, prenom, etc...)
+         *
+         * @param {void} aucun paramettre
+         * 
+         * @return  {void}
+         */
     data() {
       var url = window.location.href;
       url = url.replace(/\/$/, "");
@@ -32,6 +39,13 @@ export default {
       }
     },
     methods: {
+        /**
+         * Suppression de l'utilisateur et de ses commentaires
+         *
+         * @param {void} aucun paramettre
+         * 
+         * @return  {void}
+         */
         deleteUser(){
             const token = localStorage.getItem('token');
             axios.delete('/post', {
@@ -62,6 +76,13 @@ export default {
                 this.$router.push({path : '/connexion'})
             })
         },
+        /**
+         * deconnection de la plateforme
+         *
+         * @param {void} aucun paramettre
+         * 
+         * @return  {void}
+         */
         deconnexion(){
             this.$router.push({path : '/connexion'})
             localStorage.clear;
