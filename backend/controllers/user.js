@@ -1,10 +1,16 @@
-// const { getMaxListeners } = require('../app');
+
 const Models = require('../models/models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+/**
+ * Enregistre les coordonnées des utilisateurs
+ *
+ * @param {void} aucun paramettre
+ * 
+ * @return  {void}
+ */
 exports.signup = async (req, res, next) => {
-    //console.log("utilisateur : ", req.body);
     await Models.sequelizes.sync();
     bcrypt.hash(req.body.password, 10)
     .then(hash => {
@@ -22,31 +28,20 @@ exports.signup = async (req, res, next) => {
 
     
 };
-
-/*exports.signup = (req, res, next) => {
-    (async () => {
-        await Models.sequelizes.sync();
-        const signup = await  Models.User.create({ 
-            lastName: 'Simpson', 
-            firstName: 'Homer', 
-            email: 'homer.simpson@gmail.com', 
-            password: 'TOE'
-        });
-
-        console.log("Signup's auto-generated ID:", signup.id);
-      })()
-      .then(() => res.status(201).json({ message : 'Objet enregistré !'}))
-      .catch(error => {console.log(error); res.status(400).json({message : "Objet non enregistré !"})});
-    
-};*/
-
+/**
+ * Vérifie que l'email et le mot de passe soit dans la base de données puis envoie une réponse
+ *
+ * @param {void} aucun paramettre
+ * 
+ * @return  {void}
+ */
 exports.login = async (req, res, next) => {
     try {
         await Models.sequelizes.sync();
         const user = await Models.User.findAll({
             where: { email: req.body.email}
         })
-        console.log('NuMERO 1', user);// return un message de succes permettant d'entrer dans l'application
+        console.log('NuMERO 1', user);
         if (user.length == 0) throw ({ status: 400, msg: "element non trouvé" });
         console.log('NuMERO 3');
         console.log(user[0].dataValues.password);
@@ -63,7 +58,6 @@ exports.login = async (req, res, next) => {
             });
         })
         .catch(error => res.status(500).json({error}));
-       // res.status(201).json({ message: 'Objet se trouve dans la base de données!', info : user })
     }
     catch (e) {
         //gestion erreur
@@ -73,7 +67,14 @@ exports.login = async (req, res, next) => {
     };
 };
 
-exports.deleteUser = async (req, res, next) => {// apès avoir récupéré l'id du post on le supprime de la base de données
+/**
+ * Supprime un utilisateur de la base de données
+ *
+ * @param {void} aucun paramettre
+ * 
+ * @return  {void}
+ */
+exports.deleteUser = async (req, res, next) => {
 
     await Models.sequelizes.sync();
     let id = req.params.id;
@@ -96,6 +97,14 @@ exports.deleteUser = async (req, res, next) => {// apès avoir récupéré l'id 
 
 };
 
+/**
+ * Récupère un utilisateur de la base de données
+ *
+ * @param {void} aucun paramettre
+ * 
+ * @return  {void}
+ */
+
 exports.getUser = async (req, res, next) => {
     
     await Models.sequelizes.sync();
@@ -113,6 +122,4 @@ exports.getUser = async (req, res, next) => {
         console.log(e);
         res.status(400).json({message : "Utilisateur non récupéré !"})
     });
-   //.then(() => res.status(201).json({ message : 'Utilisateur récupéré !'}))
-    //.catch(error => {console.log(error); });
 };
