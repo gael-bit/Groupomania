@@ -11,7 +11,7 @@
         <input name = 'nom' id = 'nom' type = 'text' requiered = 'true' placeholder="Ex : Bon" pattern = "[A-Za-zëçéèà-]{3,15}">
 
         <label for = 'email'>Email : </label>
-        <input name = 'email' id = 'email' type = 'email' requiered = 'true' placeholder="Ex : maxime.bon@gmail.com" pattern="[A-Za-zëçéèà.]{3,20}[@][A-Za-zëçéèà]{3,20}.[.]com">
+        <input name = 'email' id = 'email' type = 'email' requiered = 'true' placeholder="Ex : maxime.bon@gmail.com" pattern="[A-Za-zëçéèà.]{3,20}[@][A-Za-zëçéèà]{3,20}.[.](com|fr|net)">
 
         <label for = 'password1'>Password : </label>
         <input name = 'password1' id = 'password1' type = 'password' requiered = 'true' placeholder="Ex : Fai8uuh5b">
@@ -92,13 +92,12 @@ export default {
 input{
     margin-right : 1%;
     border-radius : 20px;
-    background-color: rgb(255, 255, 255);
 }
 input:invalid{
     background-color: rgb(207, 47, 79);
 }
 input:valid{
-   background-color: rgb(80, 250, 74);
+   background-color: rgb(255, 255, 255);
 }
 #submit{
     background-color:  #1D2F90;
