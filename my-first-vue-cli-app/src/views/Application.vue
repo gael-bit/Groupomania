@@ -1,4 +1,5 @@
 <template>
+
     <div >
         <InfoUser />
         <SharePost />
@@ -18,6 +19,13 @@ export default {
         Posts,
         InfoUser
     },
+    beforeMount : function(){
+        const data = localStorage.getItem("token");
+        if(data === null){
+           this.$router.push({path : '/connexion'})
+
+        }
+    }
 }
 </script>
 

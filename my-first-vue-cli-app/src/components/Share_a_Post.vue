@@ -2,7 +2,7 @@
     <div id = "post">
         
         <label for = "picture"> image </label>
-        <img  id="blah" width="50" height="50"><br />
+        <img  id="blah" width="50" height="50" alt=""><br />
         <input type ='file' name = 'file' id = 'picture' onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])"><br />
 
         <label for = 'article'> Article </label><br />

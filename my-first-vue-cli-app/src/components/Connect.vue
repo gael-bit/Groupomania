@@ -63,12 +63,20 @@ export default {
 }
 
 input{
-    margin-right : 1%;
+     border-radius : 20px;
+     background-color: rgb(255, 255, 255);
+}
+input:invalid{
+    background-color: rgb(207, 47, 79);
+}
+input:valid{
+    
+    background-color: rgb(80, 250, 74);
 }
 
 #submit{
-    background-color:  #42b983;
-    color :  #ffffff;
+    background-color:  #1D2F90;
+    color :  #F98B8B;
     font-size: 1em;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     border-radius : 20px;
@@ -78,7 +86,7 @@ input{
 }
 
 #submit:hover{
-    background-color:  #7ebda1;
+    background-color:  #6b64f0;
 }
 @media screen and (min-width: 400px) and (max-width: 700px){
 	.connexion{

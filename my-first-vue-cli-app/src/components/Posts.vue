@@ -3,14 +3,14 @@
         <div :key="index" v-for="(item, index) in post" >
             <div id ="posts" v-if= "post[index].ref == null">
                 <div id="user">
-                    <img :src= nom.image  height="50" width="50" id = "image">
+                    <img :src= nom.image  height="50" width="50" id = "image" alt="">
                     <p id = "author">{{post[index].author}}</p>
                     <p>{{post[index].date}}</p>
                 </div>
                 <br />
                 <div id = "textImage">
-                    <p>{{post[index].text}}</p>
-                    <img :src= post[index].image id="img">
+                    <h1>{{post[index].text}}</h1>
+                    <img :src= post[index].image id="img" alt="">
                 </div>
                 <Comment :number = post[index].id />
           </div>

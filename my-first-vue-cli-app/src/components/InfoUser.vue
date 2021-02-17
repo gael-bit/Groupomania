@@ -1,6 +1,6 @@
 <template>
     <div id="infoUser">
-          <img :src= nom.image  height="45" width="45" id = "image">
+          <img :src= nom.image  height="45" width="45" id = "image" alt="">
           <p>{{nom.firstName}} {{nom.lastName}}</p>
           <p>{{nom.email}}</p>
           <button @click= "deleteUser()">Suprrimer Utlisateur</button>
@@ -73,6 +73,7 @@ export default {
                         })
             .then(response => {
                 console.log(response.data.message);
+                localStorage.clear();
                 this.$router.push({path : '/connexion'})
             })
         },
@@ -84,8 +85,9 @@ export default {
          * @return  {void}
          */
         deconnexion(){
+            localStorage.clear();
             this.$router.push({path : '/connexion'})
-            localStorage.clear;
+            
         }
     }
 }
@@ -101,7 +103,8 @@ export default {
     padding-top: 5px;
 }
 #infoUser p{
-    color: rgb(255, 255, 255);
+    color: #1D2F90;
+    font-weight: bold;
     margin-right: 1%;
 }
 #image{

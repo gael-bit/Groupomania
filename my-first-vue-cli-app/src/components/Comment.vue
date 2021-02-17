@@ -1,11 +1,13 @@
 <template>
     <div >
         <div id="box-button">
+            <label> ajouter un commentaire :
             <input type= "text" name ="comment"  id = "comment" placeholder="     _________________________________________________"/>
+        </label>
             <input @click = "sendComment()" id="button" type="submit" value="Commenter">
-            <p id="props">{{number}}</p>      
+            <p id="props" class="hidden">{{number}}</p>      
         </div>
-        <button id="commentaires" @click= "masckComment()">Commentaire</button>
+        <button id="commentaires" @click= "masckComment()">Commentaires</button>
 
         <div :id=number class="bloc">
             <div id="commentZone" :key="index" v-for="(item, index) in commentaire">
@@ -145,6 +147,9 @@ export default {
 </script>
 
 <style scoped>
+label{
+    font-size: 0px;
+}
 .bloc{
     display: none;
     flex-direction : column;
@@ -168,7 +173,7 @@ p{
 }
 
 #button{
-    background-color:  #63c297;
+    background-color:  #1D2F90;
     color :  #ffffff;
     font-size: 1em;
     font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -178,7 +183,7 @@ p{
 }
 
 #button:hover{
-    background-color:  #9dc5b3;
+    background-color:  #5a6ac4;
 }
 
 #comment{
@@ -188,12 +193,16 @@ p{
     width: 70%;
     height: 30px;
 }
-#props{
+/* #props{
     font-size: 1px;
+} */
+.hidden {
+    display: none;
 }
 #commentaires{
-    background-color:  #5568c0;
-    color :  #ffffff;
+    background-color:  #1D2F90;
+    color :  #F98B8B;
+    font-weight: bold;
     font-size: 1em;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     border-radius : 20px;
@@ -201,6 +210,9 @@ p{
     width: 24%;
     margin-left: 35%;
     margin-bottom: 3%;
+}
+#commentaires:hover{
+    background-color:  #5a6ac4;
 }
 
 @media screen and (min-width: 400px) and (max-width: 700px){
